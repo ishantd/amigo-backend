@@ -51,7 +51,10 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     
     'accounts',
+    'web',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
