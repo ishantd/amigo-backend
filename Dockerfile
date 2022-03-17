@@ -25,6 +25,7 @@ RUN apk update \
 # install dependencies
 RUN pip install --upgrade pip
 COPY requirements.txt /code/
+COPY .env /code/
 RUN pip install wheel
 RUN \ 
     pip3 install --no-cache-dir Cython

@@ -7,7 +7,9 @@ services:
     ports:
       - "3003:3003"
     volumes:
-      - ./app:/app
+      - .:/code
+    env_file:
+      - .env
     environment:
       - DB_HOST=db
       - DB_NAME=mydb-dev
