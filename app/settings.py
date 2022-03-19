@@ -108,6 +108,20 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+        
+REST_USE_JWT = True
+
+JWT_AUTH_COOKIE = 'amigo-auth'
+JWT_AUTH_REFRESH_COOKIE = 'amigo-refresh-token'
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
