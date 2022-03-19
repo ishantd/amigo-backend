@@ -14,7 +14,7 @@ function onSignIn(googleUser) {
         data: JSON.stringify(post_data),
         success: function(res) {
             console.log(res);
-            // window.location.replace("/");
+            window.location.replace("/dashboard/");
         },
         error: function(xhr, status, error) {
             // var err = eval("(" + xhr.responseText + ")");
