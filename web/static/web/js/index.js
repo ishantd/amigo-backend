@@ -1,12 +1,6 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId());
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
     var id_token = googleUser.getAuthResponse().id_token;
-    console.log(googleUser.getAuthResponse());
-    console.log('ID Token: ' + id_token);
-    console.log('Email: ' + profile.getEmail());
 
     var access_token = gapi.auth2.getAuthInstance().currentUser.Nb.wc.access_token;
     //make post request to login user
@@ -16,7 +10,7 @@ function onSignIn(googleUser) {
     $.ajax({
         type: "POST",
         headers: { "Content-Type": "application/json" },
-        url: "/accounts/dj-rest-auth/google/",
+        url: "/api/accounts/dj-rest-auth/google/",
         data: JSON.stringify(post_data),
         success: function(res) {
             console.log(res);
