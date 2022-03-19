@@ -1,5 +1,15 @@
 {% extends 'web/base.html' %}
+{% load static %}
 
 {% block content %}
- <h1>Hi, Amigo!</h1>
+<div class="container">
+    <div class="position-absolute top-50 start-50 translate-middle text-center">
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+</div>
 {% endblock content %}
+
+{% block my_js %}
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="{% static 'web/js/index.js' %}"></script>
+{% endblock my_js %}

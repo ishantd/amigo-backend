@@ -4,5 +4,7 @@ from accounts import views
 
 
 urlpatterns = [
-    path('dj-rest-auth/google/', views.GoogleLogin.as_view(), name='google_login')
+    path('dj-rest-auth/google/', views.GoogleLogin.as_view(), name='google_login'),
+    
+    
 ]
