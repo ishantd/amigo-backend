@@ -21,6 +21,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.shopify',
     'dj_rest_auth',
     'dj_rest_auth.registration',
     
@@ -160,6 +163,12 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
+SHOPIFY_API_SECRET_KEY = os.environ.get('SHOPIFY_API_SECRET_KEY')
+
+SHOPIFY_API_SCOPES = 'read_products'
+SHOPIFY_REDIRECT_URI = 'http://localhost:8000/shopify_callback/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')

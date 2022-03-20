@@ -11,6 +11,13 @@ class Profile(models.Model):
     profile_picture_url = models.URLField(max_length=2000, null=True, blank=True)
     full_name = models.CharField(max_length=50, null=True, blank=True)
     
+class ShopifyAccessToken(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, related_name='access_tokens')
+    shop_name = models.CharField(max_length=100, null=False, blank=False)
+    connection = models.CharField(max_length=50, null=False, blank=False)
+    access_token = models.CharField(max_length=2000, null=False, blank=False)
+    scope = models.CharField(max_length=2000, null=False, blank=False)
+    
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

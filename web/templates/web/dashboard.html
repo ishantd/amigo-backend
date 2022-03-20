@@ -3,6 +3,19 @@
 
 {% block content %}
 <h1>Hi, {{request.user.username}}</h1>
+
+<form action="{%url 'dashboard'%}" method="get">
+    <input type="text" placeholder="Shop Name" name="shop_name" class="form-control">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+{% if login_url %}
+    <a href="{{login_url}}">Connect to Shopify</a>
+{% endif %}
+    
+
+
 {% endblock content %}
 
 {% block my_js %}
