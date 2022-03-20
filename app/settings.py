@@ -152,6 +152,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': [
             'profile',
             'email',
+            'https://www.googleapis.com/auth/spreadsheets',
         ],
         'AUTH_PARAMS': {
             'access_type': 'offline',
@@ -164,10 +165,15 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'dashboard'
 SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
 SHOPIFY_API_SECRET_KEY = os.environ.get('SHOPIFY_API_SECRET_KEY')
 
-SHOPIFY_API_SCOPES = 'read_products'
+SHOPIFY_API_SCOPES = 'read_products,read_orders'
 SHOPIFY_REDIRECT_URI = 'http://localhost:8000/shopify_callback/'
 
 STATIC_URL = '/static/'

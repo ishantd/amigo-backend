@@ -4,12 +4,16 @@
 {% block content %}
 <div class="container">
     <div class="position-absolute top-50 start-50 translate-middle text-center">
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a class="btn btn-outline-info btn-block" style="position: relative;" href="/accounts/google/login/?process=login" target="_blank"> <span style="position: absolute;
+        left: 7px;
+        top: 7px;
+        bottom: 0;
+        margin: 0 auto; "> </span> Sign in with Google </a>
     </div>
 </div>
 {% endblock content %}
 
 {% block my_js %}
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+{% comment %} <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script> {% endcomment %}
 <script src="{% static 'web/js/index.js' %}"></script>
 {% endblock my_js %}
