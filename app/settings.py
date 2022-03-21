@@ -174,7 +174,7 @@ SHOPIFY_API_KEY = os.environ.get('SHOPIFY_API_KEY')
 SHOPIFY_API_SECRET_KEY = os.environ.get('SHOPIFY_API_SECRET_KEY')
 
 SHOPIFY_API_SCOPES = 'read_products,read_orders'
-SHOPIFY_REDIRECT_URI = 'http://localhost:8000/shopify_callback/'
+SHOPIFY_REDIRECT_URI = 'https://amigo.ishantdahiya.com/shopify_callback/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
