@@ -44,10 +44,10 @@ Description=gunicorn daemon
 After=network.target
 
 [Service]
-User=ishant_do
+User=ishant
 Group=www-data
-WorkingDirectory=/home/ishant_do/build/main
-ExecStart=/home/ishant_do/build/main/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ishant_do/build/main.sock srifintech.wsgi:application
+WorkingDirectory=/home/ishant/builds/main
+ExecStart=/home/ishant/builds/main/env/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ishant/builds/main.sock app.wsgi:application
 
 [Install]
 WantedBy=multi-user.target
@@ -60,20 +60,20 @@ sudo nano /etc/nginx/sites-available/main
 
 server {
     listen 80;
-    server_name srifintech.com;
+    server_name amigo.ishantdahiya.com;
 
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/ishant_do/build/main;
+        root /home/ishant/builds/main;
     }
 
     location / {
         include proxy_params;
-        proxy_pass http://unix:/home/ishant_do/build/main.sock;
+        proxy_pass http://unix:/home/ishant/builds/main.sock;
     }
 
     location /media/ {
-        alias /home/ishant_do/build/main/media/;
+        alias /home/ishant/builds/main/media/;
     }
 }
 
@@ -184,9 +184,9 @@ sudo systemctl restart nginx
 sudo systemctl restart gunicorn.service
 
 
-sudo systemctl restart main.service
 sudo systemctl restart qa.service
 sudo systemctl restart dev.service
+sudo systemctl restart main.service
 sudo systemctl restart nginx
 
 sudo python3 manage.py collectstatic --no-input
